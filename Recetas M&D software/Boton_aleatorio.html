@@ -1,0 +1,70 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<html>
+	<head>
+		<title>Escoje tu plato</title>
+        <link href="css/estiloescojetuplato.css" rel="stylesheet" type="text/css" media="screen">
+        <script type="text/javascript" src="js/Aleatorio.js"></script><!llama el codigo en java escript llamado aleatorio>
+	</head>
+
+	<body>
+    
+    	<div id="pagina_completa">
+        	 <div id="primera parte">
+            	<div id="logo">
+                	<img src="imagenes/LOGO.jpg">
+                </div>
+                <div id="info">
+                    <p>Para mayor informacion contactenos al telefono<br>320-395-70-69 o los siguientes enlaces web </p>
+                    <ul>
+                    	<li><a target="_blank" href="http://www.facebook.com/pages/MD-software/185780694911389?skip_nax_wizard=true"><img src="imagenes/facebook-icon.jpg"></a></li>
+                        <li><a target="_blank" href="http://www.youtube.com/user/createthenet?feature=watch"><img src="imagenes/youtube-icon.png"></a></li>
+                    	<li><a target="_blank" href="http://www.unicundi.edu.co/index.php/pag-admi/the-joomla-project/facultad-de-ingenieria/ingenieria-de-sistemas"><img src="imagenes/udec-icon.jpg"></a></li>
+                    </ul>    
+               </div>
+                	<h1 id="titulo"><img src="imagenes/bandera-de-colombia-icon.jpg"><script type="text/javascript" src="js/LetrasCambiando.js"></script><img src="imagenes/bandera-de-colombia-icon.jpg"></h1>
+                   
+            </div>
+            
+            <div id="menu">
+                <ul> 
+                    <li><a href="Inicio.html">Inicio</a></li>
+                    <li><a href="Entrada.html"> Entradas </a></li>
+                    <li> <a href="plato fuerte.html"> Plato fuerte </a></li>
+                    <li> <a href="postres.html"> Postres </a></li>
+                    <li> <a href="Escoje tu plato.html"> Escoje tu plato </a></li>
+                </ul>
+                
+            </div>
+            <div id="imagenes">
+            
+                    <img src="imagenes/Random.jpg">
+            
+            </div>
+             <div id="contenidoizq">
+
+                 <a href="Boton_aleatorio.html"><input type="button" value="Escojer plato aleatoriamente" style='width:250px; height:40px' ></a>
+
+            </div>
+            
+            <div id="contenidoderecho">
+				<h1 class="izq"><!la clase izq fue creada en un archivo de css la cual da los parametros donde se debe ubicar y el color de lo contenido en esta division>	
+					<script>entrada();</script><!llamamos la funcion entrada del archivo Aleatorio de javascript cuya coneccion se encunetra en el head de esta pagina >
+   				</h1>
+                <h1 class="centro">	
+					<script>plato();</script>
+   				</h1>
+                <h1 class="derecho">	
+					<script>postre();</script>
+   				</h1>
+            </div>            
+            
+            <div id="copyright">        
+                <p>&copy;Copyright 2013 | All Rights Reserved | M&D software Company Bogota Colombia | universidad de cundinamarca ext. chia</p>
+            </div>
+            
+        </div><!fin de division pagina completa>
+	
+    </body>
+</html>

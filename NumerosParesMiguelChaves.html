@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<body bgcolor="#F4CD3F"> <! permite poner un color de fondo !>
+		<title>Numeros pares</title>
+	</head>
+
+	<body>
+		<center> <h1>NUMEROS PARES</h1> </center>
+		<script>
+			function Calcular_Pares() 
+			{	
+						
+				var a = Number(document.getElementById("numero_usuario").value);// number nos permite validar que la entrada es un numero, si son letras las convierte a 0
+
+					if(a % 2 == 0)
+					{
+						alert("El numero "+ a + " es par");
+						
+					}
+					else
+					{
+
+						alert("El numero "+ a + " es impar");
+
+					}
+			}
+		</script>
+		<center><input id = "numero_usuario" type="number" value= "Numero" > </center>
+		<center><input type="button" value="Calcular_pares" Onclick = "Calcular_Pares()"> </center>
+	</body>	
+</html>

@@ -1,0 +1,125 @@
+/* CSS Document */
+body
+{
+	background-image:url(../imagenes/fondo%20azul.jpg);/*ponemos el fondo de tood el cuerpo con una imagen, tambien podemos ponerlo con el color que queramos*/
+	bkacground-repeat:repeat;
+}
+h1, h2 
+{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#00F;
+}/*damos formato de arial a todos los h1 y 2*/
+
+h3 li/*despliega todos los elementos de h3 en linea horizontarl y sin ningun tipo de lista*/
+{
+	display:inline;	/*despliega los elementos de la lista no ordenada horizontalmente en ves de verticalmente*/
+	list-style-type:none;
+}
+
+#pagina_completa
+{
+	width:900px;/*900 es el tamaño estandar para una tablet */
+	margin:20px auto;/*el auto es para poer a la derecha y la izq una margen automatica*/
+	background-color:#FFF;/*pónemos el background en color blanco de la division de la pagina complera*/
+	padding:0 40px;/*deja un espacio de 0 arriba ya abajo y pone uno de 40 pixeles a la izq y derecha*/
+}
+#logo
+{
+	float:left;	
+	margin:50px 0 0 0;
+}
+#info
+{
+	font-family:Arial, Helvetica, sans-serif;
+	float:right;	
+	margin:70px 0px 0px 0px;/*arriba derecha abajo izquierda*/
+}
+#info ul li
+{
+	display:inline;/*pone los elementos no ordenados de la division social media horizontalmente*/
+	list-style-type:none;/*pone los elementos no ordenados de la division social media sin ningun acompañante a la izq es decir sin bolitas o cuadritos */
+	margin:10px;
+
+}
+#titulo
+{
+	clear:both;/*borramos los efectos de flotar a la izq o derecha de la division anterior apra q no nos afecte el titulo*/
+	color:#00F;
+	text-align:center;
+}
+/*cunado el link esta sin visitar sea visitado o este activo sera le mismo color morado cunado se pase el mouse encima o se necesite enfocar cambiara a rosado*/
+a:link 		{	color:#8000FF	}
+a:visited 	{	color:#8000FF	}
+a:active	{	color:#8000FF	}
+a:hover		{	color:#FF91FF	}
+a:focus		{	color:#FF91FF	}
+
+#menu ul
+{
+	font-family:Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	border-top:1px #CCCCCC solid;
+	padding:10px 0;
+}
+#menu ul li
+{
+	display:inline;	/*despliega los elementos de la lista no ordenada horizontalmente en ves de verticalmente*/
+	list-style-type:none;/*pone los elementos no ordenados de la division social media sin ningun acompañante a la izq es decir sin bolitas o cuadritos */
+	margin:10px;
+}
+
+#menu ul a
+{
+	text-decoration:none;/*para  qnoa paresca underline en el link*/
+	font-weight:bold;
+}
+
+#imagenes
+{
+	margin:10px 0;/*10 pixeles de espacio arriba y abajo y 0 a los lados*/
+}
+
+#contenidoizq
+{
+	float:left;
+}
+
+#contenidoizq ol li
+{
+	list-style-type:none;
+
+}
+#contenidoizq ol li a
+{
+
+	font-family:Arial, Helvetica, sans-serif;
+	background-color:#00E1E1;
+	display:block;
+	width:250px;
+	padding:5px 10px;
+	text-decoration:none;/*para  qnoa paresca underline en el link*/
+
+}
+
+#contenidoizq a:link	 	{	color:#000;	}
+#contenidoizq a:visited 	{	color:#000;	}
+#contenidoizq a:active		{	color:#006;	}
+#contenidoizq a:hover		{	color:#C00;	}
+#contenidoizq a:focus		{	color#C00;	}
+
+#contenidoderecho
+{
+	width:500px;
+	float:right;
+	text-align:justify;
+}
+
+#copyright
+{
+	border-top:1px #999999 solid;
+	clear:both;
+	margin:5px;
+	text-align:center;	
+}
+
