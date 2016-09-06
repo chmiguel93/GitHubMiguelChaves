@@ -1,0 +1,260 @@
+<!--
+ 						 *******************************************************************************
+                         *                                                                             *
+                         *                    	UNIVERSIDAD DE CUNDINAMARCA                            *
+                         *                             	EXT CHIA                                       *
+                         *                    	Desarrolladores: Miguel Chaves                         *  
+                         *									   	Deisy Peña							   *
+                         *									   	Camilo Urrea						   *
+                         *									   	Fabio Diaz							   * 
+                         *                    	Semestre  X                                            *
+                         *                    	Electiva profesional IV                                *
+                         *                                                                             *
+                         *  Este programa está dividido en 3 secciones. La primera permite obtener la  *
+                         *	dirección de red, de broadcast, la primera, la última, la cantidad de 	   *
+                         *  host disponibles y la mascara de subred a partir de una dirección ip.	   *
+                         *																			   *
+                         *  La segunda sección permite ingresar n cantidad de ips para identificar si  *
+                         *  se encuentran en la mismo segmento de red.		                           *
+                         *																			   *
+                         *  La tercera sección permite realizar la segmentación de una red a partir de *
+                         *  una ip ingresada y al cantidad de segmentos escogidos.					   *
+                         *																			   *
+                         *******************************************************************************
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script type="text/javascript" src="js/jquery-2.1.3.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/Logica.js"></script>
+	<title>Calculadora de IP's</title>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">    
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
+
+	       <ul class="nav nav-tabs">
+	       	<li class="active"><a data-toggle="tab" href="#Home">Calculadora de IP's</a></li>
+		    <li><a data-toggle="tab" href="#Identificacion">Identificación de Ip</a></li>
+		    <li><a data-toggle="tab" href="#PerteneceRed">Ip de la misma red?</a></li>
+		    <li><a data-toggle="tab" href="#Segmentacion">Segmentación de red</a></li>
+		    <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Desarrolladores<span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">Miguel Chaves <span><img src="images/m.png" style="width: 38px; height: 38px;"></span></a></li>
+	            <li><a href="#">Deisy Peña <span><img src="images/pony.png" style="width: 48px; height: 38px;"></span></a></li>
+	            <li><a href="#">Camilo Urrea <span><img src="images/Skull.png" style="width: 48px; height: 38px;"></span></a></li>
+	            <li><a href="#">Fabio Diaz <span><img src="images/Panda.gif" style="width: 48px; height: 48px;"></span></a></li>
+	          </ul>
+	        </li>
+		  </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav> <!-- fin de navegación -->
+
+	<div id="contenido" class="container">
+		<center><h1 style="color:red;" id="Error"></h1>
+		  <div class="tab-content">
+		    
+		    <div id="Home" class="tab-pane fade in active">
+		      <h3 class="well">Home</h3>
+		      <center>			
+				<img src="images/Home.jpg" class="img-responsive img-circle">
+			  </center>
+		    </div>
+		    <div id="Identificacion" class="tab-pane fade">
+		      <h3 class="well">Identificación de Ip</h3>
+		      <p>Por favor ingrese la ip que desea identificar con su respectivo prefijo de red.</p>
+		      <table>
+		      		<tr>
+		      			<td>
+		      				<input type="number" class="form-control" id="1-Oct1" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="1-Oct2" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="1-Oct3" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="1-Oct4" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>/&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="1-Prefijo" placeholder = "0" required>
+		      			</td>
+		      		</tr>
+		      		<tr><td><br></td></tr>
+		      		<tr >
+		      			<td colspan="9">
+		      				<button class="btn btn-warning btn-lg btn-block" id="Identificar">Identificar IP</button>
+		      			</td>
+		      		</tr>
+		      </table>
+		      <br><br>
+
+		      <div id="Resultado1"></div>	<!-- Imprime el resultado de la operación -->			  
+		    </div>
+
+		    <div id="PerteneceRed" class="tab-pane fade">
+		      <h3 class="well">Ip de la misma red?</h3>
+		      <p>Por favor ingrese las ip que desea identificar con su respectivo prefijo de red.</p>
+		      <table id="tbComparar">
+		      	<tr><td>Identificador</td></tr>
+		      		<tr>
+		      			<td><b>Ip # 1</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_1-Oct1" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_1-Oct2" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_1-Oct3" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_1-Oct4" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>/&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_1-Prefijo" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;</td>
+		      			<td>
+		      				<button class="btn btn-primary btn-md btn-block" id="2" onclick="AddIp(this.id)">Añadir IP</button>
+		      			</td><td>&nbsp;&nbsp;</td>
+		      			<td>
+		      				<button class="btn btn-danger btn-md btn-block" id="e-2" onclick="DeleteIp(this.id)">Eliminar IP</button>
+		      			</td>
+		      		</tr>
+		      		<tr>
+		      			<td><b>Ip # 2</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_2-Oct1" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_2-Oct2" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_2-Oct3" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_2-Oct4" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>/&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="2_2-Prefijo" placeholder = "0" required>
+		      			</td>
+		      		</tr>
+		      		<tr><td><br></td></tr>
+		      		<tr >
+		      			<td colspan="14">
+		      				<input type="submit" class="btn btn-warning btn-lg btn-block" id="MismaRed" value="IP's a comparar: 2">
+		      			</td>
+		      		</tr>
+		      </table>
+		      <br><br>
+
+		      <div id="Resultado2"></div>	<!-- Imprime el resultado de la operación -->
+		      <div id="Resultado2_2"></div>
+		    </div>
+
+		    <div id="Segmentacion" class="tab-pane fade">
+		      <h3 class="well">Segmentación de red</h3>
+		      <p>Por favor ingrese la ip que desea segmentar con su respectivo prefijo de red .</p>
+		      <table>
+		      		<tr>
+		      			<td>
+		      				<input type="number" class="form-control" id="3-Oct1" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="3-Oct2" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="3-Oct3" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>.&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="3-Oct4" placeholder = "0" required>
+		      			</td><td>&nbsp;&nbsp;<b>/&nbsp;&nbsp;</td>
+		      			<td>
+		      				<input type="number" class="form-control" id="3-Prefijo" placeholder = "0" required>
+		      			</td>
+		      		</tr>
+		      		<tr><td><br></td></tr>
+		      		<tr class="well">
+		      			<td></td>
+		      			<td></td>
+		      			<td colspan="4">
+		      				<label>seleccione la cantidad de redes que desea obtener: </label>		      				
+		      			</td>
+		      			<td>
+		      				<select class="form-control" id="3-bits">
+								<option value="1" selected>2</option>
+								<option value="2">4</option>
+								<option value="3">8</option>
+								<option value="4" >16</option>
+								<option value="5">32</option>
+								<option value="6" >64</option>
+								<option value="7">128</option>
+								<option value="8">256</option>
+
+								<option value="9">512</option>
+								<option value="10">1.024</option>
+								<option value="11">2.048</option>
+								<option value="12" >4.096</option>
+								<option value="13">8.192</option>
+								<option value="14" >16.384</option>
+								<option value="15">32.768</option>
+								<option value="16">65.536</option>
+
+							    <option value="17">131.072</option>
+								<option value="18">262.144</option>
+								<option value="19">524.288</option>
+								<option value="20">1'048.576</option>
+								<option value="21">2'097.152</option>
+								<option value="22">4'194.304</option>
+								<option value="23">8'388.608</option>
+								<option value="24">16'777.216</option>
+
+								<option value="25">33'554.432</option>
+								<option value="26">67'108.864</option>
+								<option value="27">134'217.728</option>
+								<option value="28">268'435.456</option>
+								<option value="29">536'870.912</option>
+								<option value="30">1.073'741.824</option>
+								<option value="31">2.147'483.648</option>
+							</select>
+		      			</td>
+		      			<td></td>
+		      			<td></td>
+		      			
+		      		</tr>
+		      		<tr><td><br></td></tr>
+		      		<tr >
+		      			<td colspan="9">
+		      				<button class="btn btn-warning btn-lg btn-block" id="Segmentar">Segmentar IP</button>
+		      			</td>
+		      		</tr>
+		      </table>
+		      <br><br>
+
+		      <div id="Resultado3"></div>	<!-- Imprime el resultado de la operación -->			  
+		    </div>
+
+		  </div>
+		</center>		
+	</div> <!-- /container  Aca se imprime lo seleeccionado en el menu principal-->  
+
+</body>
+</html>
